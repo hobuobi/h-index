@@ -25,7 +25,7 @@ ul#partners {
 #partners li * {
     display: inline;
 }
-#partners li input[type='text']{
+.encounters{
     outline: none;
     border: none;
     background: none;
@@ -55,4 +55,9 @@ button{
 }
 #partners-submit {
     background: rgb(88, 211, 88);
+}
+span.warning{
+    display: inline-block;
+    color: red;
+    font-size: 0.8em;
 }
