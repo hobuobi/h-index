@@ -13,14 +13,19 @@ ul#partners {
     margin: 0px;
 }
 #partners li {
+    position: relative;
     display: inline-block;
     padding: 2rem;
     width: 90%;
-    padding: 5% 5%;
+    padding: 5% 7%;
     transition: 0.3s;
+    overflow-x: hidden;
 }
 #partners li:hover {
     background: #EEEEEE
+}
+#partners li:hover .cancel{
+    left: 2.5%;
 }
 #partners li * {
     display: inline;
@@ -35,6 +40,17 @@ ul#partners {
     min-width: 3rem;
     font-size: 1.3em;
     text-align: right;
+}
+.cancel {
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    transform: translateY(-50%);
+    transition: 0.3s;
+    color: gray
+}
+.cancel:hover {
+    color: #ff6060;
 }
 button{
     width: 100%;
