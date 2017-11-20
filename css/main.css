@@ -1,0 +1,58 @@
+body {
+    margin: 100px 20%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300; 
+}
+
+ul#partners {
+    display: inline-block;
+    width: 100%;
+    font-size: 1.3em;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+#partners li {
+    display: inline-block;
+    padding: 2rem;
+    width: 90%;
+    padding: 5% 5%;
+    transition: 0.3s;
+}
+#partners li:hover {
+    background: #EEEEEE
+}
+#partners li * {
+    display: inline;
+}
+#partners li input[type='text']{
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: solid 2px #5939f9;
+    float: right;
+    width: 10%;
+    min-width: 3rem;
+    font-size: 1.3em;
+    text-align: right;
+}
+button{
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 0px;
+    color: white;
+    padding: 5%;
+    font-size: 1.3em;
+    margin: 5px 0px;
+}
+button{
+    cursor: pointer;
+    opacity: 50%;
+}
+#partners-add {
+    background: #5939f9;    
+}
+#partners-submit {
+    background: rgb(88, 211, 88);
+}

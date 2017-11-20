@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>H-INDEX TEST</title>
+        <!-- CS -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+        <link rel='stylesheet' href='css/main.css'>
+        <!-- JS -->
+        <script
+		src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>H-INDEX SURVEY</h1>
+        <h3>A brief quantitative study on hookup culture and its social factors/trends.</h3>
+        <hr />
+        <form>
+            <div id='partner-cont'>
+                <p>When filling this out, make sure to only include people who you have never been in a relationship with.</p>
+                <ul id='partners'>   
+                    <li>
+                            Partner 1
+                        <input type='text' placeholder='#' />
+                    </li>
+                </ul>
+                <button type='button' id='partners-add'>Add Partner</button>
+                <button type='button' id='partners-submit'>Submit</button>
+            </div>
+        </form>
+    </body>
+    <script>
+        var partnerNumber = 1;
+        $('#partners-add').click(function(){
+            partnerNumber++;
+            $('#partners').append("<li>Partner "+partnerNumber+"<input type='text' placeholder='#' />")
+        })
+    </script>
+</html>
