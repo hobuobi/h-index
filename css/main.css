@@ -16,7 +16,7 @@ ul#partners {
     position: relative;
     display: inline-block;
     padding: 2rem;
-    width: 90%;
+    width: 86%;
     padding: 5% 7%;
     transition: 0.3s;
     overflow-x: hidden;
@@ -51,6 +51,7 @@ ul#partners {
 }
 .cancel:hover {
     color: #ff6060;
+    cursor: pointer;
 }
 button{
     width: 100%;
@@ -58,13 +59,12 @@ button{
     border: none;
     border-radius: 0px;
     color: white;
-    padding: 5%;
+    padding: 3% 10%;
     font-size: 1.3em;
     margin: 5px 0px;
 }
-button{
+button:hover{
     cursor: pointer;
-    opacity: 50%;
 }
 #partners-add {
     background: #5939f9;    
