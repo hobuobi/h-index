@@ -3,16 +3,17 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300; 
 }
-
-ul#partners {
+#partner-cont {
+    display: none;
+}
+ul.questions {
     display: inline-block;
     width: 100%;
-    font-size: 1.3em;
     list-style-type: none;
     padding: 0px;
     margin: 0px;
 }
-#partners li {
+ul.questions li {
     position: relative;
     display: inline-block;
     padding: 2rem;
@@ -20,26 +21,49 @@ ul#partners {
     padding: 5% 7%;
     transition: 0.3s;
     overflow-x: hidden;
+    font-size: 1.3em;
 }
-#partners li:hover {
+ul.questions li:hover {
     background: #EEEEEE
 }
-#partners li:hover .cancel{
+ul.questions li:hover .cancel{
     left: 2.5%;
 }
-#partners li * {
+ul.questions li * {
     display: inline;
 }
-.encounters{
+ul.questions li input[type='text']{
     outline: none;
     border: none;
     background: none;
     border-bottom: solid 2px #5939f9;
     float: right;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    text-align: right;
+}
+ul.questions li select {
+    outline: none;
+    border: none;
+    background: none;
+    border-radius: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    border-bottom: solid 2px #5939f9;
+
+    float: right;
+    text-align: right;
+}
+.numerical {
     width: 10%;
     min-width: 3rem;
-    font-size: 1.3em;
-    text-align: right;
+}
+.long-form {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left !important;
+    float: left !important;
 }
 .cancel {
     position: absolute;
@@ -62,12 +86,13 @@ button{
     padding: 3% 10%;
     font-size: 1.3em;
     margin: 5px 0px;
+    background: #5939f9;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.3s;
 }
 button:hover{
     cursor: pointer;
-}
-#partners-add {
-    background: #5939f9;    
+    transform: translateY(3px);
 }
 #partners-submit {
     background: rgb(88, 211, 88);

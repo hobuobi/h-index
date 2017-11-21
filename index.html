@@ -18,13 +18,48 @@
         <h3>A brief quantitative study on hookup culture and its social factors/trends.</h3>
         <hr />
         <form>
+            <div id='bio-cont'>
+                <ul id='bio' class='questions'>
+                    <h2>Part 1 - Biographical Data</h2>
+                    <p>Please provide a little bit of information about yourself.</p>
+                    <li>
+                        Age?
+                        <input type='text' class='numerical' placeholder='age' />
+                    </li>
+                    <li>
+                        Gender?
+                        <select>
+                            <option value='male'>Male</option>
+                            <option value='female'>Female</option>
+                            <option value='trans'>Transexual</option>
+                            <option value='non-binary'>Non-binary</option>
+                        </select>
+                    </li>
+                    <li>
+                        Sexual Orientation?
+                        <select>
+                            <option value='hetero'>Heterosexual</option>
+                            <option value='homo'>Homosexual</option>
+                            <option value='bi'>Bisexual</option>
+                            <option value='ace'>Asexual</option>
+                        </select>
+                    </li>
+                    <li>
+                        What is your definition of a hookup?
+                        <br>
+                        <input type='text' class='long-form' placeholder='Define a hookup in your own words.' />
+                    </li>
+                </ul>
+                <button type='button' id='next-section'>Next Section</button>
+            </div>
             <div id='partner-cont'>
-                <p>When filling this out, make sure to only include people who you have never been in a relationship with.</p>
-                <ul id='partners'>   
+                <h2>Part 2 - Partner Encounters</h2>
+                <p>When filling this out, make sure to only include people who you have never been in a relationship with. Remember, this is totally anonymous.</p>
+                <ul id='partners' class='questions'>   
                     <li>
                         <i class="fa fa-times-circle cancel" aria-hidden="true"></i>
                         Partner 1
-                        <input class='encounters' type='text' placeholder='#' maxlength='2' />
+                        <input class='encounters numerical' type='text' placeholder='#' maxlength='2' />
                     </li>
                 </ul>
                 <button type='button' id='partners-add'>Add Partner</button>
@@ -43,21 +78,34 @@
                 this.parentNode.getElementsByClassName("warning").removeChild();
         }
         */
+        $('#next-section').click(function(){
+            $(this).parent().animate({
+                'opacity': 0
+            },300,function(){ $(this).css('display','none'); $("#partner-cont").css('display','inline-block')});
+        })
         function applyBehaviors(){
             $('.encounters').blur(function(){
-                console.log(typeof $(this).val() == 'number')
-                if(typeof $(this).val() != 'number' && $(this).find('.warning'))
-                    $(this).parent().append("<span class='warning'>Non-numerical input. Please fix this.</span>")
-                else
-                    $(this).parent().find(".warning").remove()
+                if($(this).val().length > 0){
+                    console.log("L:"+$(this).parent().find('.warning').length+" NUM?:"+typeof $(this).val());
+                    if(typeof $(this).val() != 'number')
+                        if($(this).parent().find('.warning').length == 0)
+                            $(this).parent().append("<span class='warning'>Non-numerical input. Please fix this.</span>")
+                    else
+                        $(this).parent().find(".warning").remove()
+                }
             })
             $('.cancel').click(function(){
                 $(this).parent().remove();
             })
         }
+        function hIndex(arr){
+            arr = arr.sort(function(a,b){ return b-a; })
+            var i = 1;
+            return 0;
+        }
         $('#partners-add').click(function(){
             partnerNumber++;
-            $('#partners').append("<li><i class='fa fa-times-circle cancel' aria-hidden='true'></i>Partner "+partnerNumber+"<input class='encounters' type='text' placeholder='#' maxlength='2'/>")
+            $('#partners').append("<li><i class='fa fa-times-circle cancel' aria-hidden='true'></i>Partner "+partnerNumber+"<input class='encounters numerical' type='text' placeholder='#' maxlength='2'/>")
             applyBehaviors();
         })
     </script>
