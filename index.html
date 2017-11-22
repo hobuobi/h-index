@@ -28,7 +28,8 @@
                     </li>
                     <li>
                         Gender?
-                        <select>
+                        <select onchange=''>
+                            <option value='default'>Choose...</option>
                             <option value='male'>Male</option>
                             <option value='female'>Female</option>
                             <option value='trans'>Transexual</option>
@@ -37,7 +38,8 @@
                     </li>
                     <li>
                         Sexual Orientation?
-                        <select>
+                        <select onchange=''>
+                            <option value='default'>Choose...</option>
                             <option value='hetero'>Heterosexual</option>
                             <option value='homo'>Homosexual</option>
                             <option value='bi'>Bisexual</option>
@@ -73,52 +75,15 @@
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase-database.js"></script>
     <script>
     // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBcWNQebmbmIx5166SgVoYmnE1XjbObQBw",
-        authDomain: "h-index.firebaseapp.com",
-        databaseURL: "https://h-index.firebaseio.com",
-        projectId: "h-index",
-        storageBucket: "",
-        messagingSenderId: "16761998322"
-    };
-    firebase.initializeApp(config);
+        var config = {
+            apiKey: "AIzaSyBcWNQebmbmIx5166SgVoYmnE1XjbObQBw",
+            authDomain: "h-index.firebaseapp.com",
+            databaseURL: "https://h-index.firebaseio.com",
+            projectId: "h-index",
+            storageBucket: "",
+            messagingSenderId: "16761998322"
+        };
+        firebase.initializeApp(config);
     </script>
-    <script>
-        var db = firebase.database();
-        var partnerNumber = 1;
-        applyBehaviors();
-        $('#next-section').click(function(){
-            $(this).parent().animate({
-                'opacity': 0
-            },300,function(){ $(this).css('display','none'); $("#partner-cont").css('display','inline-block')});
-        })
-        function applyBehaviors(){
-            $('.numerical').blur(function(){
-                if($(this).val().length > 0){
-                    if(isNaN($(this).val())){
-                        console.log('bad news bears');
-                        if($(this).parent().find('.warning').length == 0)
-                            $(this).parent().append("<span class='warning'>Non-numerical input.</span>")
-                    }
-                    else{
-                        $(this).parent().find(".warning").remove()
-                        console.log('we gucci')
-                    }        
-                }
-            })
-            $('.cancel').click(function(){
-                $(this).parent().remove();
-            })
-        }
-        function hIndex(arr){
-            arr = arr.sort(function(a,b){ return b-a; })
-            var i = 1;
-            return 0;
-        }
-        $('#partners-add').click(function(){
-            partnerNumber++;
-            $('#partners').append("<li><i class='fa fa-times-circle cancel' aria-hidden='true'></i>Partner "+partnerNumber+"<input class='encounters numerical' type='text' placeholder='#' maxlength='2'/>")
-            applyBehaviors();
-        })
-    </script>
+    <script src='js/mains.js'></script>
 </html>
