@@ -6,6 +6,16 @@ $('#next-section').click(function(){
         'opacity': 0
     },300,function(){ $(this).css('display','none'); $("#partner-cont").css('display','inline-block')});
 })
+function selectValidation(el){
+    if(el.value != 'default'){
+        $(el).parent().find(".warning").remove()
+        $(el).addClass('valid');
+    }
+    else{
+        $(el).parent().append("<span class='warning'>Invalid choice.</span>");
+        $(el).removeClass('valid');
+    }
+}
 function applyBehaviors(){
     $('.numerical').blur(function(){
         if($(this).val().length > 0){
