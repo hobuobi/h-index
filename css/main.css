@@ -90,15 +90,18 @@ button{
     font-family: 'Roboto', sans-serif;
     transition: 0.3s;
 }
-button:hover{
+button:active:hover{
     cursor: pointer;
     transform: translateY(3px);
+}
+button:disabled {
+    background: lightgray;
 }
 #partners-submit {
     background: rgb(88, 211, 88);
 }
 span.warning{
-    display: inline-block;
+    display: block;
     color: red;
     font-size: 0.8em;
 }

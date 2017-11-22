@@ -50,7 +50,7 @@
                         <input type='text' class='long-form' placeholder='Define a hookup in your own words.' />
                     </li>
                 </ul>
-                <button type='button' id='next-section'>Next Section</button>
+                <button type='button' id='next-section' disabled>Next Section</button>
             </div>
             <div id='partner-cont'>
                 <h2>Part 2 - Partner Encounters</h2>
@@ -68,7 +68,7 @@
         </form>
     </body>
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase-app.js"></script>>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase-database.js"></script>
     <script>
     // Initialize Firebase
@@ -92,14 +92,17 @@
             },300,function(){ $(this).css('display','none'); $("#partner-cont").css('display','inline-block')});
         })
         function applyBehaviors(){
-            $('.encounters').blur(function(){
+            $('.numerical').blur(function(){
                 if($(this).val().length > 0){
-                    console.log("L:"+$(this).parent().find('.warning').length+" NUM?:"+typeof $(this).val());
-                    if(typeof $(this).val() != 'number')
+                    if(isNaN($(this).val())){
+                        console.log('bad news bears');
                         if($(this).parent().find('.warning').length == 0)
-                            $(this).parent().append("<span class='warning'>Non-numerical input. Please fix this.</span>")
-                    else
+                            $(this).parent().append("<span class='warning'>Non-numerical input.</span>")
+                    }
+                    else{
                         $(this).parent().find(".warning").remove()
+                        console.log('we gucci')
+                    }        
                 }
             })
             $('.cancel').click(function(){
