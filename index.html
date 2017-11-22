@@ -67,17 +67,25 @@
             </div>
         </form>
     </body>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase-app.js"></script>>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase-database.js"></script>
     <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBcWNQebmbmIx5166SgVoYmnE1XjbObQBw",
+        authDomain: "h-index.firebaseapp.com",
+        databaseURL: "https://h-index.firebaseio.com",
+        projectId: "h-index",
+        storageBucket: "",
+        messagingSenderId: "16761998322"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <script>
+        var db = firebase.database();
         var partnerNumber = 1;
         applyBehaviors();
-        /*
-        function numCheck(el){
-            if(el.value.length < 1 || !isNan(el.value))
-                this.parentNode.innerHTML += "<span class='warning'>Non-numerical input. Please fix this.</span>";
-            else
-                this.parentNode.getElementsByClassName("warning").removeChild();
-        }
-        */
         $('#next-section').click(function(){
             $(this).parent().animate({
                 'opacity': 0
