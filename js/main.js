@@ -2,6 +2,14 @@ var db = firebase.database();
 var partnerNumber = 1;
 var pageNum = 1;
 var allValid = false;
+var userData = {
+    'userId': (Math.ceil(Math.random() * 900000000 + 100000000)),
+    'age': 0,
+    'gender': '',
+    'sex_or': '',
+    'hookup_desc': '',
+    'partner_encounters': []
+}
 applyBehaviors();
 $('.next').click(function(){
     $(this).parent().animate({
@@ -19,15 +27,29 @@ function selectValidation(el){
     }
     allValid = checkValidity();
 }
+function textValidation(el/*,required=true*/){
+    //if(!required){
+        if(el.value != ''){
+            $(el).parent().find(".warning").remove()
+            $(el).addClass('valid');
+        }
+        else{
+            $(el).parent().append("<span class='warning'>Invalid choice.</span>");
+            $(el).removeClass('valid');
+        }
+        allValid = checkValidity();
+    //}
+}
 function checkValidity(){
     console.log('VALIDITY CHECK')
     inputs = $('#section-'+pageNum).find('.question-input').toArray()
-    for(x in inputs)
+    for(x in inputs){
         console.log(($(inputs[x]).hasClass('valid')))
         if(!($(inputs[x]).hasClass('valid'))){
             $('#section-'+pageNum).find('.next').prop('disabled',true)
             return false;
-        }      
+        }    
+    }   
     $('#section-'+pageNum).find('.next').prop('disabled',false)
     return true;
 }
@@ -64,3 +86,26 @@ $('#partners-add').click(function(){
     allValid = checkValidity();
     applyBehaviors();
 })
+$('#partners-submit').click(function(){
+    encounters = $('#section-2').find('.question-input').toArray()
+    for(x in encounters)
+        (userData.partner_encounters).push(parseInt($(encounters[x]).val()))
+    userData.partner_encounters.sort(function(a,b){ return b-a; })
+    //writeData(userData);
+})
+$('#next-section').click(function(){
+    inputs = $('#section-1').find('.question-input').toArray()
+    for(x in inputs)
+        userData[$(inputs[x]).attr('id')] = $(inputs[x]).val();
+    //writeData(userData);
+})
+
+function writeData(data){
+    firebase.database().ref('subjects/' + data.userId).set({
+        age: data.age,
+        gender: data.gender,
+        sex_or: data.sex_or,
+        hookup_desc: data.hookup_desc,
+        partner_encounters: data.partner_encounters
+    });
+}

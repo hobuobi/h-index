@@ -24,11 +24,11 @@
                     <p>Please provide a little bit of information about yourself.</p>
                     <li>
                         Age?
-                        <input type='text' class='question-input numerical' placeholder='age' />
+                        <input id='age' type='text' class='question-input numerical' placeholder='age' />
                     </li>
                     <li>
                         Gender?
-                        <select class='question-input' onchange='selectValidation(this)'>
+                        <select id='gender' class='question-input' onchange='selectValidation(this)'>
                             <option value='default'>Choose...</option>
                             <option value='male'>Male</option>
                             <option value='female'>Female</option>
@@ -38,7 +38,7 @@
                     </li>
                     <li>
                         Sexual Orientation?
-                        <select class='question-input' onchange='selectValidation(this)'>
+                        <select id='sex_or' class='question-input' onchange='selectValidation(this)'>
                             <option value='default'>Choose...</option>
                             <option value='hetero'>Heterosexual</option>
                             <option value='homo'>Homosexual</option>
@@ -50,7 +50,7 @@
                     <li>
                         What is your definition of a hookup?
                         <br>
-                        <input type='text' class='long-form' placeholder='Define a hookup in your own words.' />
+                        <input id='hookup_desc' type='text' class='question-input long-form valid' placeholder='Define a hookup in your own words.' onblur='textValidation(this,false)' />
                     </li>
                 </ul>
                 <button type='button' class='next' id='next-section' disabled>Next Section</button>
