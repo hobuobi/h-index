@@ -3,7 +3,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300; 
 }
-#partner-cont {
+#section-2 {
     display: none;
 }
 ul.questions {
@@ -58,6 +58,9 @@ ul.questions li select {
     width: 10%;
     min-width: 3rem;
 }
+.valid {
+    border-color: rgb(88, 211, 88) !important;
+}
 .long-form {
     display: block;
     width: 100%;
@@ -90,12 +93,16 @@ button{
     font-family: 'Roboto', sans-serif;
     transition: 0.3s;
 }
-button:active:hover{
+button:hover{
     cursor: pointer;
     transform: translateY(3px);
 }
 button:disabled {
-    background: lightgray;
+    background: lightgray !important;
+}
+button:disabled:hover {
+    cursor: default;
+    transform: none;
 }
 #partners-submit {
     background: rgb(88, 211, 88);

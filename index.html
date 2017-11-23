@@ -18,17 +18,17 @@
         <h3>A brief quantitative study on hookup culture and its social factors/trends.</h3>
         <hr />
         <form>
-            <div id='bio-cont'>
+            <div id='section-1'>
                 <ul id='bio' class='questions'>
                     <h2>Part 1 - Biographical Data</h2>
                     <p>Please provide a little bit of information about yourself.</p>
                     <li>
                         Age?
-                        <input type='text' class='numerical' placeholder='age' />
+                        <input type='text' class='question-input numerical' placeholder='age' />
                     </li>
                     <li>
                         Gender?
-                        <select onchange='selectValidation(this)'>
+                        <select class='question-input' onchange='selectValidation(this)'>
                             <option value='default'>Choose...</option>
                             <option value='male'>Male</option>
                             <option value='female'>Female</option>
@@ -38,7 +38,7 @@
                     </li>
                     <li>
                         Sexual Orientation?
-                        <select onchange='selectValidation(this)'>
+                        <select class='question-input' onchange='selectValidation(this)'>
                             <option value='default'>Choose...</option>
                             <option value='hetero'>Heterosexual</option>
                             <option value='homo'>Homosexual</option>
@@ -53,20 +53,20 @@
                         <input type='text' class='long-form' placeholder='Define a hookup in your own words.' />
                     </li>
                 </ul>
-                <button type='button' id='next-section' disabled>Next Section</button>
+                <button type='button' class='next' id='next-section' disabled>Next Section</button>
             </div>
-            <div id='partner-cont'>
+            <div id='section-2'>
                 <h2>Part 2 - Partner Encounters</h2>
                 <p>When filling this out, make sure to only include people who you have never been in a relationship with. Remember, this is totally anonymous.</p>
                 <ul id='partners' class='questions'>   
                     <li>
                         <i class="fa fa-times-circle cancel" aria-hidden="true"></i>
                         Partner 1
-                        <input class='encounters numerical' type='text' placeholder='#' maxlength='2' />
+                        <input class='question-input numerical' type='text' placeholder='#' maxlength='2' />
                     </li>
                 </ul>
                 <button type='button' id='partners-add'>Add Partner</button>
-                <button type='button' id='partners-submit'>Submit</button>
+                <button type='button' class='next' id='partners-submit' disabled>Submit</button>
             </div>
         </form>
     </body>
