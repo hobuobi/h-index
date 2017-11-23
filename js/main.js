@@ -25,7 +25,7 @@ function checkValidity(){
     for(x in inputs)
         console.log(($(inputs[x]).hasClass('valid')))
         if(!($(inputs[x]).hasClass('valid'))){
-            $('#section-'+pageNum).find('#next').prop('disabled',true)
+            $('#section-'+pageNum).find('.next').prop('disabled',true)
             return false;
         }      
     $('#section-'+pageNum).find('.next').prop('disabled',false)
@@ -44,10 +44,13 @@ function applyBehaviors(){
                 $(this).addClass('valid')
             }        
         }
+        else
+            $(this).removeClass('valid')
         allValid = checkValidity();
     })
     $('.cancel').click(function(){
         $(this).parent().remove();
+        allValid = checkValidity();
     })
 }
 function hIndex(arr){
